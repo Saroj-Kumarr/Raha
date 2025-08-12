@@ -13,25 +13,41 @@ const Header = () => {
 
   const isHome = pathname === "/"; // For color logic
 
-  const NavLinks = () => (
+  // NavLinks now get closeMenu callback
+  const NavLinks = ({ closeMenu }: { closeMenu?: () => void }) => (
     <ul className="flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center font-medium text-[15px]">
-      <li className="hover:text-[#2EC697] transition-all duration-300">
+      <li
+        className="hover:text-[#2EC697] transition-all duration-300"
+        onClick={closeMenu}
+      >
         <Link href="/product" className="flex items-center gap-1">
           Product <ChevronDown size={14} className="relative top-[2px]" />
         </Link>
       </li>
-      <li className="hover:text-[#2EC697] transition-all duration-300">
+      <li
+        className="hover:text-[#2EC697] transition-all duration-300"
+        onClick={closeMenu}
+      >
         <Link href="/how-it-works" className="flex items-center gap-1">
           How it Works <ChevronDown size={14} className="relative top-[2px]" />
         </Link>
       </li>
-      <li className="hover:text-[#2EC697] transition-all duration-300">
+      <li
+        className="hover:text-[#2EC697] transition-all duration-300"
+        onClick={closeMenu}
+      >
         <Link href="/services">Services</Link>
       </li>
-      <li className="hover:text-[#2EC697] transition-all duration-300">
+      <li
+        className="hover:text-[#2EC697] transition-all duration-300"
+        onClick={closeMenu}
+      >
         <Link href="/about">About Us</Link>
       </li>
-      <li className="hover:text-[#2EC697] transition-all duration-300">
+      <li
+        className="hover:text-[#2EC697] transition-all duration-300"
+        onClick={closeMenu}
+      >
         <Link href="/career">Career</Link>
       </li>
     </ul>
@@ -41,7 +57,7 @@ const Header = () => {
     <>
       {/* Main Header */}
       <div
-        className={`flex  justify-between items-center ${
+        className={`flex justify-between items-center ${
           isHome
             ? "absolute z-50 w-full border-b md:border-none"
             : "border-b bg-white"
@@ -72,9 +88,11 @@ const Header = () => {
           }`}
         >
           <NavLinks />
-          <Button className="w-36 h-10">
-            Login <ChevronDown size={14} className="relative top-[2px]" />
-          </Button>
+          <Link href="/sign-up">
+            <Button className="w-36 h-10">
+              Login <ChevronDown size={14} className="relative top-[2px]" />
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -88,10 +106,13 @@ const Header = () => {
           } absolute top-[64px] left-0 w-full z-40 px-6 py-6`}
         >
           <div className="flex flex-col gap-6">
-            <NavLinks />
-            <Button className="w-full h-10">
-              Login <ChevronDown size={14} className="relative top-[2px]" />
-            </Button>
+            {/* Pass closeMenu handler to NavLinks */}
+            <NavLinks closeMenu={() => setMenuOpen(false)} />
+            <Link href="/sign-up" onClick={() => setMenuOpen(false)}>
+              <Button className="w-full h-10">
+                Login <ChevronDown size={14} className="relative top-[2px]" />
+              </Button>
+            </Link>
           </div>
         </div>
       )}

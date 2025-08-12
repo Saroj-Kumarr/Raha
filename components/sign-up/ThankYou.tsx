@@ -19,15 +19,15 @@ export default function ThankYou() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#ECFDF7] to-[#CBEEE1] flex flex-col items-center justify-center p-8">
-      <div className="text-center max-w-md mx-auto">
+    <div className="min-h-screen bg-gradient-to-r from-[#ECFDF7] to-[#CBEEE1] flex flex-col items-center justify-center p-5 md:p-8">
+      <div className="text-center md:max-w-md md:mx-auto">
         {/* Success Icon */}
         <Image
           src="/completed.svg"
           alt="completed"
           width={80}
           height={80}
-          className="mx-auto mb-8"
+          className="mx-auto mb-8 w-[60px] h-[60px] md:h-[80px] md:w-[80px]"
         />
 
         {/* Main Heading */}
@@ -54,7 +54,7 @@ export default function ThankYou() {
           </p>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex justify-center space-x-4 md:space-x-8">
             <a
               href="#"
               className="w-8 h-8 bg-black rounded-md flex items-center justify-center hover:bg-gray-800 transition-colors"

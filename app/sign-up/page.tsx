@@ -80,18 +80,18 @@ export default function SignupForm() {
   };
 
   return (
-    <div>
+    <div className="">
       {isSubmit ? (
         <ThankYou />
       ) : (
-        <div className="h-screen w-full flex">
+        <div className="min-h-screen w-full flex flex-col lg:flex-row">
           {/* Left Side - Form */}
-          <div className="w-1/2 p-20 flex flex-col">
+          <div className="w-full lg:w-1/2 p-6 sm:p-10 lg:p-20 flex flex-col order-1">
             {/* Header */}
             <div className="mb-8">
               <h1 className="text-2xl font-bold text-green-600 mb-8"></h1>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-4xl font-semibold text-[#00150E]">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#00150E]">
                   Request Quotation
                 </h2>
                 <span className="text-xs text-gray-500">
@@ -106,9 +106,11 @@ export default function SignupForm() {
             {/* Form Content */}
             <div className="flex-1">
               {currentStep === 1 ? (
+                /* Step 1 Form Fields Section (unchanged) */
                 <div className="space-y-6">
                   {/* First Name & Last Name */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* First Name */}
                     <div className="space-y-2">
                       <Label
                         className="text-sm text-[#2C3857]"
@@ -126,6 +128,7 @@ export default function SignupForm() {
                         }
                       />
                     </div>
+                    {/* Last Name */}
                     <div className="space-y-2">
                       <Label
                         className="text-sm text-[#2C3857]"
@@ -146,22 +149,19 @@ export default function SignupForm() {
                   </div>
 
                   {/* Mobile & Employees */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {" "}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Mobile */}
                     <div className="space-y-2">
-                      {" "}
                       <Label
                         className="text-sm text-[#2C3857]"
                         htmlFor="mobile"
                       >
                         Mobile no.
-                      </Label>{" "}
+                      </Label>
                       <div className="flex w-full">
-                        {" "}
                         <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
-                          {" "}
-                          +91{" "}
-                        </span>{" "}
+                          +91
+                        </span>
                         <Input
                           className="h-10 rounded-l-none w-full"
                           id="mobile"
@@ -170,41 +170,38 @@ export default function SignupForm() {
                           onChange={(e) =>
                             updateFormData("mobile", e.target.value)
                           }
-                        />{" "}
-                      </div>{" "}
-                    </div>{" "}
+                        />
+                      </div>
+                    </div>
+                    {/* Employees */}
                     <div className="space-y-2">
-                      {" "}
                       <Label
                         className="text-sm text-[#2C3857]"
                         htmlFor="employees"
                       >
                         Employees
-                      </Label>{" "}
+                      </Label>
                       <Select
                         value={formData.employees}
                         onValueChange={(value) =>
                           updateFormData("employees", value)
                         }
                       >
-                        {" "}
                         <SelectTrigger
                           id="employees"
                           className="h-10 min-h-10 px-4 pr-8 text-base w-full"
                         >
-                          {" "}
-                          <SelectValue placeholder="Select no. of employees" />{" "}
-                        </SelectTrigger>{" "}
+                          <SelectValue placeholder="Select no. of employees" />
+                        </SelectTrigger>
                         <SelectContent className="w-[var(--radix-select-trigger-width)]">
-                          {" "}
-                          <SelectItem value="1-10">1-10</SelectItem>{" "}
-                          <SelectItem value="11-50">11-50</SelectItem>{" "}
-                          <SelectItem value="51-200">51-200</SelectItem>{" "}
-                          <SelectItem value="201-500">201-500</SelectItem>{" "}
-                          <SelectItem value="500+">500+</SelectItem>{" "}
-                        </SelectContent>{" "}
-                      </Select>{" "}
-                    </div>{" "}
+                          <SelectItem value="1-10">1-10</SelectItem>
+                          <SelectItem value="11-50">11-50</SelectItem>
+                          <SelectItem value="51-200">51-200</SelectItem>
+                          <SelectItem value="201-500">201-500</SelectItem>
+                          <SelectItem value="500+">500+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
 
                   {/* Work Email */}
@@ -230,46 +227,40 @@ export default function SignupForm() {
 
                   {/* Industry */}
                   <div className="space-y-2">
-                    {" "}
                     <Label
                       className="text-sm text-[#2C3857]"
                       htmlFor="industry"
                     >
-                      {" "}
-                      Choose your industry{" "}
-                    </Label>{" "}
+                      Choose your industry
+                    </Label>
                     <Select
                       value={formData.industry}
                       onValueChange={(value) =>
                         updateFormData("industry", value)
                       }
                     >
-                      {" "}
-                      <SelectTrigger className="w-full h-10 min-h-10 px-4 pr-8 text-base">
-                        {" "}
-                        <SelectValue placeholder="Select your company's industry" />{" "}
-                      </SelectTrigger>{" "}
+                      <SelectTrigger className="w-full h-10 px-4 pr-8 text-base">
+                        <SelectValue placeholder="Select your company's industry" />
+                      </SelectTrigger>
                       <SelectContent className="w-[var(--radix-select-trigger-width)]">
-                        {" "}
-                        <SelectItem value="technology">
-                          Technology
-                        </SelectItem>{" "}
-                        <SelectItem value="healthcare">Healthcare</SelectItem>{" "}
-                        <SelectItem value="finance">Finance</SelectItem>{" "}
-                        <SelectItem value="education">Education</SelectItem>{" "}
-                        <SelectItem value="retail">Retail</SelectItem>{" "}
+                        <SelectItem value="technology">Technology</SelectItem>
+                        <SelectItem value="healthcare">Healthcare</SelectItem>
+                        <SelectItem value="finance">Finance</SelectItem>
+                        <SelectItem value="education">Education</SelectItem>
+                        <SelectItem value="retail">Retail</SelectItem>
                         <SelectItem value="manufacturing">
                           Manufacturing
-                        </SelectItem>{" "}
-                        <SelectItem value="other">Other</SelectItem>{" "}
-                      </SelectContent>{" "}
-                    </Select>{" "}
+                        </SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
               ) : (
+                /* Step 2 Fields Section (unchanged) */
                 <div className="space-y-6">
                   {/* Step 2 Fields */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label
                         className="text-sm text-[#2C3857]"
@@ -306,7 +297,7 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label
                         className="text-sm text-[#2C3857]"
@@ -343,7 +334,7 @@ export default function SignupForm() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label
                         className="text-sm text-[#2C3857]"
@@ -407,48 +398,47 @@ export default function SignupForm() {
             </div>
 
             {/* Footer */}
-            <div className="mt-8 flex justify-between items-center text-sm text-[#475467]">
+            <div className="mt-8 hidden md:flex flex-col sm:flex-row justify-between items-center text-sm text-[#475467] gap-2">
               <span>© Raha Health 2025</span>
               <span>help@rahainsure.com</span>
             </div>
           </div>
 
-          {/* Right Side - Functional Image Slider */}
-          <div className="w-1/2 bg-gradient-to-br from-[#ECFDF7] to-[#CBEEE1] flex flex-col items-center justify-center">
-            <div className="relative z-50">
+          {/* Right Side - Image Slider */}
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-[#ECFDF7] to-[#CBEEE1] flex flex-col items-center justify-center order-2">
+            {/* Slider Content (unchanged) */}
+            <div className="relative z-50 flex flex-col items-center p-6">
               <Image
                 src="/signup_big_banner.svg"
                 alt="Sign Up Banner"
                 width={400}
                 height={250}
-                objectFit="cover"
               />
               <Image
                 src="/uploading.svg"
-                className="absolute top-32 -left-12"
+                className="absolute top-32 -left-12 hidden lg:block"
                 alt="Uploading"
                 width={210}
                 height={185}
-                objectFit="cover"
               />
               <Image
-                className="absolute top-44 -right-20"
+                className="absolute top-44 -right-20 hidden lg:block"
                 src="/claims.svg"
                 alt="Claims"
                 width={210}
                 height={145}
-                objectFit="cover"
               />
             </div>
 
-            <div className="text-center mt-16 max-w-md">
-              <h3 className="text-2xl font-semibold text-[#00150E] mb-4 transition-all duration-300">
+            <div className="text-center mt-8 max-w-md px-4">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#00150E] mb-4">
                 {slides[currentSlide].title}
               </h3>
-              <p className="text-[#5C657D] text-xs font-medium mb-8 transition-all duration-300">
+              <p className="text-[#5C657D] text-xs sm:text-sm font-medium mb-8">
                 {slides[currentSlide].description}
               </p>
 
+              {/* Slider Navigation */}
               <div className="flex items-center justify-center space-x-4">
                 <Button
                   variant="ghost"
@@ -462,7 +452,7 @@ export default function SignupForm() {
                   {slides.map((_, index) => (
                     <div
                       key={index}
-                      className={`w-8 h-1 rounded cursor-pointer transition-all duration-300 ${
+                      className={`w-6 sm:w-8 h-1 rounded cursor-pointer transition-all duration-300 ${
                         index === currentSlide ? "bg-gray-900" : "bg-gray-300"
                       }`}
                       onClick={() => setCurrentSlide(index)}
@@ -478,6 +468,10 @@ export default function SignupForm() {
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
+            </div>
+            <div className="mt-8 mb-8 md:hidden flex flex-col sm:flex-row justify-between items-center text-sm text-[#475467] gap-2">
+              <span>© Raha Health 2025</span>
+              <span>help@rahainsure.com</span>
             </div>
           </div>
         </div>

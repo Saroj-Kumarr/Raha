@@ -28,19 +28,19 @@ const features: Feature[] = [
   {
     id: "policy-details",
     title: "Policy Details",
-    imageSrc: "/deserve_better.svg",
+    imageSrc: "/policy_details.svg",
     icon: FileText,
   },
   {
     id: "claim-details",
     title: "Claim Details",
-    imageSrc: "/deserve_better.svg",
+    imageSrc: "/claim_details.svg",
     icon: ClipboardCheck,
   },
   {
     id: "easy-endorsements",
     title: "Easy Endorsements",
-    imageSrc: "/deserve_better.svg",
+    imageSrc: "/ease_endorsment.svg",
     icon: CheckCircle,
   },
 ];
