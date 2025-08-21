@@ -5,6 +5,8 @@ import GetStarted from "@/components/home/GetStarted";
 import HealthStats from "@/components/home/HealthStats";
 import Hero from "@/components/home/hero/Hero";
 import HomeCTASection from "@/components/home/HomeCTASection";
+import NewFeature from "@/components/home/NewFeature";
+import WeTakeCare from "@/components/home/WeTakeCare";
 import Testimonial from "@/components/shared/Testimonial";
 import React from "react";
 
@@ -13,12 +15,19 @@ const page = () => {
     <div>
       <Hero />
       <TrustedBy />
-      <Feature />
+      {/* <Feature /> */}
+      <WeTakeCare />
       <HealthStats />
-      <DeserveBetter />
+      <NewFeature />
       <Testimonial />
       <GetStarted />
       <HomeCTASection />
+      {/* <HealthStats />
+      <NewFeature /> */}
+      {/* <DeserveBetter /> */}
+      {/* <Testimonial />
+      <GetStarted />
+      <HomeCTASection /> */}
     </div>
   );
 };

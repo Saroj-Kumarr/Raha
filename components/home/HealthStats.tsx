@@ -2,12 +2,20 @@ import Image from "next/image";
 
 export default function HealthStats() {
   return (
-    <section className="max-w-7xl mx-auto py-16">
+    <section className="max-w-7xl mx-auto md:py-16">
       <div className="container px-4 md:px-6">
-        <h2 className="text-[22px] md:text-4xl font-normal md:text-center mb-8 md:mb-12">
-          Caring for health. Changing{" "}
-          <span className="text-[#03704F]">lives.</span>
-        </h2>
+        <div className="text-left mb-14">
+          <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
+            IMPACT
+          </p>
+          <h2 className="text-2xl md:text-4xl max-w-2xl md:leading-12 font-medium text-gray-900 mb-5">
+            Beyond the platform, we&apos;ve made a real difference
+          </h2>
+          <p className="text-[#747C90] max-w-5xl">
+            We&apos;re enabling healthier, happier workforces—one organization
+            at a time.
+          </p>
+        </div>
 
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

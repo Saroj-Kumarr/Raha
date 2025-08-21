@@ -32,15 +32,15 @@ export default function TrustedBy() {
       <div className="w-full mb-8">
         <div className="flex items-center gap-4 w-full">
           {/* Decorative line left */}
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#03704F]"></div>
+          <div className="flex-1 h-px bg-[#747C90]"></div>
           {/* Center text */}
           <div className="flex-shrink-0 text-center">
-            <p className="text-lg text-[#014832]">
-              Trusted by 240 HR and founders
+            <p className="text-lg text-[#747C90]">
+              Trusted by 100+ organisations
             </p>
           </div>
           {/* Decorative line right */}
-          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#03704F]"></div>
+          <div className="flex-1 h-px bg-[#747C90]"></div>
         </div>
       </div>
 

@@ -74,13 +74,16 @@ export default function TestimonialSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="px-4 sm:px-8 lg:px-20 py-8 sm:py-12 lg:py-16 bg-white max-w-7xl mx-auto">
+    <section className="px-4 md:px-20 lg:px-24 py-8 sm:py-12 lg:py-16 bg-white ">
       <div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl text-center font-medium">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium">
           What our customers talk about us!
         </h2>
+        <p className="text-[#747C90] pt-4">
+          Real stories from people wh&apos;ve experienced the Raha difference
+        </p>
 
-        <div className="relative flex justify-center items-center mt-8 sm:mt-12 lg:mt-20">
+        <div className="relative md:mx-20 flex justify-center items-center mt-8 sm:mt-12 lg:mt-20">
           {/* Previous Testimonial Image (Left) - Desktop Only */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[100px] h-full rounded-xl overflow-hidden z-10 hidden lg:block">
             <img

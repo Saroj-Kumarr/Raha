@@ -2,10 +2,14 @@ import AboutHero from "@/components/about/AboutHero";
 import ContactForm from "@/components/about/ContactForm";
 import CoreValues from "@/components/about/CoreValues";
 import DriveUs from "@/components/about/DriveUs";
+import Humans from "@/components/about/Humans";
 import MeetOurPeople from "@/components/about/MeetOurPeople";
+import OpenPositions from "@/components/about/OpenPositions";
 import OurJourney from "@/components/about/OurJourney";
 import TrustedBy from "@/components/about/TrustedBy";
+import Values from "@/components/about/Values";
 import FAQSection from "@/components/feature/FAQSection";
+import HomeCTASection from "@/components/home/HomeCTASection";
 import React from "react";
 
 const page = () => {
@@ -20,13 +24,17 @@ const page = () => {
       />
       <AboutHero />
       <TrustedBy />
-      <OurJourney />
-      <DriveUs />
-      <MeetOurPeople />
-      <CoreValues />
-
-      <ContactForm />
+      <Values />
+      <Humans />
+      <OpenPositions />
+      {/* <OurJourney /> */}
+      {/* <DriveUs /> */}
+      {/* <MeetOurPeople /> */}
+      {/* <CoreValues /> */}
+      {/* <ContactForm /> */}
+      {/* <FAQSection /> */}
       <FAQSection />
+      <HomeCTASection />
     </div>
   );
 };

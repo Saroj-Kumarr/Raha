@@ -60,7 +60,7 @@ const Header = () => {
         className={`flex justify-between items-center ${
           isHome
             ? "absolute z-50 w-full border-b md:border-none"
-            : "border-b bg-white"
+            : "border-b md:border-none bg-white"
         } py-4 px-4 sm:px-8 md:px-20 transition-colors duration-300`}
       >
         {/* Logo + Mobile Menu Button */}

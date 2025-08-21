@@ -2,12 +2,10 @@ import AddYourTeam from "@/components/feature/AddYourTeam";
 import FAQSection from "@/components/feature/FAQSection";
 import FeatureCTASection from "@/components/feature/FeatureCTASection";
 import FeatureHero from "@/components/feature/FeatureHero";
-import LiveClaim from "@/components/feature/LiveClaim";
-import RahaStats from "@/components/feature/RahaStats";
-import RaiseRequest from "@/components/feature/RaiseRequest";
-import ReadPeople from "@/components/feature/ReadPeople";
-import SmarterWay from "@/components/feature/SmarterWay";
-import UpdatePolicy from "@/components/feature/UpdatePolicy";
+import FeatureTrustedBy from "@/components/feature/FeatureTrustedBy";
+import InsuranceAndWellness from "@/components/feature/InsuranceAndWellness";
+
+import HomeCTASection from "@/components/home/HomeCTASection";
 import TestimonialSection from "@/components/shared/Testimonial";
 import React from "react";
 
@@ -23,19 +21,14 @@ const page = () => {
 "
       />
       <FeatureHero />
-      <RahaStats />
-      <div className="md:space-y-32">
-        <RaiseRequest />
-        <AddYourTeam />
-        <LiveClaim />
-        <UpdatePolicy />
-        <SmarterWay />
-        <ReadPeople />
-      </div>
+      <FeatureTrustedBy />
 
-      {/* <TestimonialSection /> */}
+      {/* <RahaStats /> */}
+      <InsuranceAndWellness />
+
+      <TestimonialSection />
       <FAQSection />
-      <FeatureCTASection />
+      <HomeCTASection />
     </div>
   );
 };
