@@ -39,17 +39,18 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="py-8 md:py-20 bg-white px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="py-8 md:py-20 bg-white px-5 md:px-20 lg:px-24">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6 md:gap-16 items-start">
           {/* Left side - Heading and description */}
           <div className="lg:pr-8">
             <h2 className="text-4xl hidden md:block text-[#00150E] mb-2">
-              Still Have
+              Still Have{" "}
+              <span className="text-medium  hidden md:inline-block text-4xl text-[#03704F] mb-4">
+                Questions?
+              </span>
             </h2>
-            <h2 className="text-medium  hidden md:block text-4xl text-[#03704F] mb-8">
-              Questions?
-            </h2>
+
             <h2 className="text-[22px] md:hidden text-[#00150E] mb-2">
               Still Have{" "}
               <span className="text-[#03704F] font-medium">Questions?</span>

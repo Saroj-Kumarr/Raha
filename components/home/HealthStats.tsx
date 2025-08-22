@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function HealthStats() {
   return (
-    <section className="max-w-7xl mx-auto md:py-16">
-      <div className="container px-4 md:px-6">
+    <section className="px-5 md:px-20 lg:px-24">
+      <div className="">
         <div className="text-left mb-14">
           <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
             IMPACT

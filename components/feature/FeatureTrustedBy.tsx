@@ -31,7 +31,7 @@ const statsData = [
 
 const FeatureTrustedBy = () => {
   return (
-    <div className="px-4 flex flex-col justify-center items-center">
+    <div className="bg-white px-4 flex flex-col justify-center items-center">
       <div className="w-full mb-8">
         <div className="flex items-center gap-4 w-full">
           {/* Decorative line left */}

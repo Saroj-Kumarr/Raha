@@ -11,7 +11,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden pt-8 md:pt-24pb-20">
+    <div className="relative min-h-screen w-full overflow-hidden pt-8 md:pt-24">
       {/* Grid background */}
       <div
         className="

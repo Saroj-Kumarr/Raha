@@ -15,7 +15,7 @@ const GetStarted = () => {
               src="/onboard.svg"
               alt="Onboarding illustration"
               fill
-              className="object-cover mt-5 max-h-[150px]"
+              className="object-cover mt-5 max-h-[170px]"
             />
           </div>
           <div className="pt-5 px-4 relative z-20">
@@ -32,7 +32,7 @@ const GetStarted = () => {
               src="/insure.svg"
               alt="Onboarding illustration"
               fill
-              className="object-cover mt-5 max-h-[150px]"
+              className="object-cover mt-5 max-h-[170px]"
             />
           </div>
           <div className="pt-5 px-4 relative z-20">
@@ -51,7 +51,7 @@ const GetStarted = () => {
               src="/manage.svg"
               alt="Onboarding illustration"
               fill
-              className="object-cover mt-5 max-h-[150px]"
+              className="object-cover mt-5 max-h-[170px]"
             />
           </div>
           <div className="pt-5 px-4 relative z-20">

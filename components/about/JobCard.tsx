@@ -29,6 +29,7 @@ export default function JobCard({ job }: JobCardProps) {
             <span
               className={`inline-flex items-center px-2 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-medium ${job.tagColor}`}
             >
+              <span className="w-1 h-1 rounded-full bg-current mr-1"></span>
               {job.departmentTag}
             </span>
           </div>
