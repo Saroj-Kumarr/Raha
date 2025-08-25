@@ -1,51 +1,43 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { CornerDownRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const WeTakeCare = () => {
   const [activeTab, setActiveTab] = useState("insurance");
-
-  const insuranceRef = useRef<HTMLDivElement>(null);
-  const wellnessRef = useRef<HTMLDivElement>(null);
-  const opdRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
     {
       id: "insurance",
       label: "🛡️ Insurance",
-      color: "blue",
-      iconColor: "text-red-500",
-      ref: insuranceRef,
+      title: "Insurance for every employee",
+      description:
+        "Raha was conceptualized to empower organizations to provide the best health and insurance benefits to their employees.",
     },
     {
       id: "wellness",
       label: "🧘 Wellness",
-      color: "amber",
-      iconColor: "text-amber-500",
-      ref: wellnessRef,
+      title: "Employee Wellness",
+      description:
+        "From fitness sessions to mental well-being support, we create a happier, healthier workplace.",
     },
     {
       id: "opd",
-      label: "👩‍⚕️️ OPD",
-      color: "green",
-      iconColor: "text-orange-500",
-      ref: opdRef,
+      label: "👩‍⚕️ OPD",
+      title: "OPD Services",
+      description:
+        "We simplify outpatient care, so employees can get the help they need, faster.",
     },
   ];
 
-  const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
-    const tab = tabs.find((t) => t.id === tabId);
-    if (tab?.ref.current) {
-      tab.ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const activeContent = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section className="px-5 md:px-20 lg:px-24 pt-32 md:pb-20">
+    <section className="px-5 md:px-20 lg:px-24 pt-16 md:pb-20">
+      {/* Header */}
       <div className="text-left mb-14">
         <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
           PRODUCT
@@ -57,95 +49,66 @@ const WeTakeCare = () => {
           We strive for enabling healthier workforce.
         </p>
       </div>
+
       <div className="md:max-w-7xl md:mx-auto md:px-4">
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center mb-12 gap-4 md:gap-10">
+        {/* Tabs Navigation */}
+
+        <div
+          className="
+    flex md:justify-between gap-4 max-w-6xl mx-auto md:gap-10 mb-12
+    overflow-x-auto md:overflow-visible 
+    no-scrollbar
+  "
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => handleTabClick(tab.id)}
-              className={`flex flex-1 min-w-[120px] max-w-[300px] items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                activeTab === tab.id ? "bg-[#F5F6F7]" : "cs"
-              }`}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
+        flex-shrink-0 md:flex-1  
+        min-w-[120px] max-w-[600px]
+        px-5 py-3 rounded-lg text-sm font-medium transition-all
+        ${
+          activeTab === tab.id
+            ? "bg-[#F5F6F7] text-gray-900"
+            : "bg-white text-gray-500 border"
+        }
+      `}
             >
               {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Insurance Section */}
-        <div ref={insuranceRef} className="mb-24 pt-5">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 border-l border-y p-4 md:p-8 py-6 md:py-10 rounded-sm">
-              <h2 className="text-2xl md:text-5xl font-medium text-foreground leading-tight">
-                Insurance for every employee
-              </h2>
-              <p className="md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                Raha was conceptualized to empower organizations to provide the
-                best health and insurance benefits to their employees.
-              </p>
+        {/* Active Tab Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Text */}
+          <div className="space-y-6 border-l border-y p-4 md:p-8 py-6 md:py-10 rounded-sm">
+            <h2 className="text-2xl md:text-5xl font-medium text-foreground leading-tight">
+              {activeContent.title}
+            </h2>
+            <p className="md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              {activeContent.description}
+            </p>
+            <Link href="/services">
               <Button
                 variant="ghost"
-                className="p-0 h-auto mt-8 font-medium text-foreground hover:text-primary"
+                className="p-0 h-10 mt-8 font-medium text-foreground hover:text-primary"
               >
                 <CornerDownRight size={16} /> Learn more
               </Button>
-            </div>
-            <div className="relative">
-              <Image
-                src="/home_wellness.svg"
-                alt="Healthcare Dashboard"
-                width={480}
-                height={390}
-                className="w-full h-auto"
-              />
-            </div>
+            </Link>
           </div>
-        </div>
 
-        {/* Wellness Section */}
-        <div ref={wellnessRef} className="mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 border-l border-y p-4 md:p-8 py-6 md:py-10 rounded-sm">
-              <h2 className="text-2xl md:text-5xl font-medium text-foreground leading-tight">
-                Employee Wellness
-              </h2>
-              <p className="md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                From fitness sessions to mental well-being support, we create a
-                happier, healthier workplace.
-              </p>
-              <Button
-                variant="ghost"
-                className="p-0 h-auto mt-8 font-medium text-foreground hover:text-primary"
-              >
-                <CornerDownRight size={16} /> Learn more
-              </Button>
-            </div>
-            {/* Empty div to maintain grid structure but hide image */}
-            <div className="hidden lg:block"></div>
-          </div>
-        </div>
-
-        {/* OPD Section */}
-        <div ref={opdRef} className="mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-6 border-l border-y p-4 md:p-8 py-6 md:py-10 rounded-sm">
-              <h2 className="text-2xl md:text-5xl font-medium text-foreground leading-tight">
-                OPD Services
-              </h2>
-              <p className="md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                We simplify outpatient care, so employees can get the help they
-                need, faster.
-              </p>
-              <Button
-                variant="ghost"
-                className="p-0 h-auto mt-8 font-medium text-foreground hover:text-primary"
-              >
-                <CornerDownRight size={16} /> Learn more
-              </Button>
-            </div>
-            {/* Empty div to maintain grid structure but hide image */}
-            <div className="hidden lg:block"></div>
+          {/* Right Image (Same for all tabs for now) */}
+          <div className="relative">
+            <Image
+              src="/home_wellness.svg"
+              alt="Product Feature"
+              width={480}
+              height={390}
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </div>

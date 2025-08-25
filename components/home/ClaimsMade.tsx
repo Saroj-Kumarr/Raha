@@ -1,6 +1,8 @@
 import { CornerDownRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { Button } from "../ui/button";
 
 const ClaimsMade = () => {
   return (
@@ -37,9 +39,14 @@ const ClaimsMade = () => {
               tools—everything you need is right here.
             </p>
 
-            <button className="flex gap-2 items-center mt-8 md:mt-12">
-              <CornerDownRight size={16} /> Learn More
-            </button>
+            <Link href="/features">
+              <Button
+                variant="ghost"
+                className="p-0 h-10 mt-8 font-medium text-foreground hover:text-primary"
+              >
+                <CornerDownRight size={16} /> Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
