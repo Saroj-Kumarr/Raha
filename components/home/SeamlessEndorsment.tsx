@@ -38,7 +38,7 @@ const SeamlessEndorsment = () => {
               just a few clicks. Fast, accurate, and stress-free.
             </p>
 
-            <Link href="/features">
+            <Link href="/feature">
               <Button
                 variant="ghost"
                 className="p-0 h-10 mt-8 font-medium text-foreground hover:text-primary"
