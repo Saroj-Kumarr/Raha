@@ -6,7 +6,7 @@ import SmartAdmin from "./SmartAdmin";
 
 const NewFeature = () => {
   return (
-    <section className="px-4 md:px-20 lg:px-24 pt-32 pb-20">
+    <section className="px-4 md:px-20 lg:px-24 pt-[88px] pb-20">
       <div className="text-left md:mb-14 mb-20">
         <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
           Features
@@ -18,7 +18,7 @@ const NewFeature = () => {
           Lorem ipsum dolor sit amet consectetur. Elem.
         </p>
       </div>
-      <div className="space-y-20">
+      <div className="space-y-16 md:space-y-20">
         <UnifiedDashboard />
         <ClaimsMade />
         <SeamlessEndorsment />

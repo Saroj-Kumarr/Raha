@@ -27,7 +27,7 @@ export default function TrustedBy() {
   }, []);
 
   return (
-    <div className="bg-white px-4 py-8 md:py-16 flex flex-col justify-center items-center">
+    <div className="bg-white py-8 md:py-16 flex flex-col justify-center items-center">
       {/* ==== Title with Decorative Lines ==== */}
       <div className="w-full mb-8">
         <div className="flex items-center gap-4 w-full">

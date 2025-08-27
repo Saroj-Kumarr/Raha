@@ -19,7 +19,7 @@ export default function Footer() {
     <footer className=" pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-6 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12 mb-6 md:mb-16">
           {/* Company Info */}
           <div className="space-y-6 col-span-2">
             <div>
@@ -77,21 +77,10 @@ export default function Footer() {
                         Registered Address
                       </p>
                       <p className="text-sm mt-1 text-[#868E9E]">
-                        2nd Floor, Plot No. B-225, Okhla Industrial Area,
+                        Plot 177, Phase II Kamalapuri Colony,
                       </p>
                       <p className="text-sm text-[#868E9E]">
-                        Phase-I, South Delhi, New Delhi- 110020
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm mt-1 font-medium text-[#414752]">
-                        Corporate Address
-                      </p>
-                      <p className="text-sm mt-1 text-[#868E9E]">
-                        2nd Floor, Plot No. B-225, Okhla Industrial Area,
-                      </p>
-                      <p className="text-sm text-[#868E9E]">
-                        Phase-I, South Delhi, New Delhi- 110020
+                        Yousufguda, Hyderabad, Telangana - 500073
                       </p>
                     </div>
                   </div>
@@ -101,7 +90,7 @@ export default function Footer() {
           </div>
 
           {/* Know Us */}
-          <div className="col-span-1">
+          <div className="col-span-1 ">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Know Us
             </h3>
@@ -166,7 +155,7 @@ export default function Footer() {
           </div>
 
           {/* Our Policies */}
-          <div className="col-span-1">
+          <div className="col-span-1 ">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Our Policies
             </h3>
@@ -231,7 +220,7 @@ export default function Footer() {
           </div>
 
           {/* Our Services */}
-          <div className="col-span-1">
+          <div className="col-span-1 hidden md:block">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">
               Our Services
             </h3>
@@ -286,13 +275,98 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Put it here */}
+          <div className="md:hidden flex w-80 flex-row overflow-hidden px-4 py-6 bg-white">
+            <div className="w-full lg:w-40 mb-6 lg:mb-0 lg:pr-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-6">
+                Our Services
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Order Medicines
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Book Lab Tests
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Consult a Doctor
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Ayurveda Articles
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Hindi Articles
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-sm text-[#868E9E] hover:text-[#2EC697] transition-colors"
+                  >
+                    Care Plan
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full lg:flex-1 lg:pl-4 lg:border-l lg:border-gray-200">
+              <div className="flex flex-col sm:flex-row sm:gap-10 gap-6 mb-4">
+                <div className="flex justify-center sm:justify-start">
+                  <Image
+                    src="/legit_script.svg"
+                    width={92}
+                    height={92}
+                    alt="LegitScript"
+                    className="object-contain max-w-full h-auto"
+                  />
+                </div>
+                <div className="flex justify-center sm:justify-start">
+                  <Image
+                    src="/urs.svg"
+                    width={183}
+                    height={95}
+                    alt="URS Certification"
+                    className="object-contain max-w-full h-auto"
+                  />
+                </div>
+              </div>
+              <p className="text-sm text-[#868E9E] text-center sm:text-left">
+                India&apos;s only LegitScript and ISO/IEC 27001:2022 certified
+                online healthcare platform
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Certifications and Trust Indicators */}
         <div className=" md:pt-12 mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Certifications */}
-            <div>
+            <div className="hidden md:block">
               <div className="flex gap-10 items-center">
                 <Image
                   src="/legit_script.svg"
@@ -359,8 +433,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="md:pt-8">
+          <div className="flex flex-col lg:flex-row  justify-between items-center gap-6">
             {/* Social Media and Know More */}
             <div className="">
               <div className="flex justify-center space-x-8">
@@ -410,14 +484,14 @@ export default function Footer() {
                 </a>
               </div>
 
-              <button className="flex mt-6 items-center gap-4 text-sm text-gray-700">
+              <button className="hidden md:flex mt-6 items-center gap-4 text-sm text-gray-700">
                 Know more about Raha
                 <ChevronDown className="w-5 h-5 text-[#2EC697] border p-[2px] rounded-full" />
               </button>
             </div>
 
             {/* App Store Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex w-full md:justify-end items-center gap-4">
               <Image
                 src="/app_store.svg"
                 width={147}
@@ -431,10 +505,15 @@ export default function Footer() {
                 alt="google play"
               />
             </div>
+
+            <button className="md:hidden flex justify-start w-full gap-4 text-sm text-gray-700">
+              Know more about Raha
+              <ChevronDown className="w-5 h-5 text-[#2EC697] border p-[2px] rounded-full" />
+            </button>
           </div>
 
           {/* Copyright */}
-          <div className="flex items-center justify-between mt-8 pt-6">
+          <div className="flex items-center justify-between md:mt-8 pt-6">
             <div className="text-sm space-y-2">
               <p>© 2025 Raha Insure. All rights reserved.</p>
               <p>
@@ -442,7 +521,13 @@ export default function Footer() {
                 are compliant with applicable IRDAI regulations.
               </p>
             </div>
-            <Image src="/quote.svg" height={80} width={80} alt="quote" />
+            <Image
+              className="hidden md:block"
+              src="/quote.svg"
+              height={80}
+              width={80}
+              alt="quote"
+            />
           </div>
         </div>
       </div>

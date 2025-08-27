@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +10,7 @@ import Image from "next/image";
 import "./Hero.css";
 
 const Hero = ({ banner = [] }: { banner?: string[] }) => {
-  const fallback = [{ desktop: "/frame_1.svg" }];
+  const fallback = [{ desktop: "/new_hero_girl.svg" }];
 
   const slides = banner.length ? banner.map((b) => ({ desktop: b })) : fallback;
 
@@ -67,18 +66,16 @@ const Hero = ({ banner = [] }: { banner?: string[] }) => {
             {slides.map((item, i) => (
               <SwiperSlide key={i}>
                 <img
-                  src={item.desktop}
+                  src={item.desktop || "/placeholder.svg"}
                   alt="banner"
                   className="w-full h-[520px] object-cover brightness-90"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-          {/* Gradient overlay for readability */}
-          <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
-        </div>
 
-        {/* Mobile - Only One Image */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 z-10 bg-gradient-to-r from-[#0A1511] via-[#0A1511]/80 to-transparent" />
+        </div>
         <div className="md:hidden relative">
           <div className="relative w-full max-w-full overflow-hidden min-h-[700px]">
             <Image
@@ -90,8 +87,9 @@ const Hero = ({ banner = [] }: { banner?: string[] }) => {
             />
           </div>
 
-          {/* Text overlay for mobile */}
-          <div className="absolute top-28 left-5  space-y-6 text-white">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+
+          <div className="absolute top-28 left-5 z-10 space-y-6 text-white">
             <h1 className="text-4xl font-medium leading-snug">
               Insurance Made Easy
               <br />

@@ -58,9 +58,7 @@ const Header = () => {
       {/* Main Header */}
       <div
         className={`flex justify-between items-center ${
-          isHome
-            ? "absolute z-50 w-full border-b md:border-none"
-            : "border-b md:border-none bg-white"
+          isHome ? "absolute z-50 w-full" : " bg-white"
         } py-4 px-4 sm:px-8 md:px-20 transition-colors duration-300`}
       >
         {/* Logo + Mobile Menu Button */}
@@ -72,7 +70,7 @@ const Header = () => {
           {/* Mobile Hamburger */}
           <button
             className={`md:hidden ${
-              isHome ? "text-black" : "text-black"
+              isHome ? "text-white" : "text-white"
             } transition-colors duration-300`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle Menu"

@@ -12,7 +12,7 @@ const SeamlessEndorsment = () => {
         <div className="flex-1 h-64 sm:h-80 lg:h-[450px] relative flex items-center justify-center order-1 lg:order-2">
           <div className="relative w-full  h-64 sm:h-80 lg:h-[400px]">
             <Image
-              src="/health_card.svg"
+              src="/health_card.png"
               alt="Dashboard Interface"
               fill
               style={{ objectFit: "contain" }}
@@ -41,7 +41,7 @@ const SeamlessEndorsment = () => {
             <Link href="/feature">
               <Button
                 variant="ghost"
-                className="p-0 h-10 mt-8 font-medium text-foreground hover:text-primary"
+                className="p-0 h-10 font-medium text-foreground hover:text-primary"
               >
                 <CornerDownRight size={16} /> Learn More
               </Button>

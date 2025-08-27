@@ -74,20 +74,20 @@ export default function TestimonialSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="px-4 md:px-20 lg:px-24 py-8 sm:py-12 lg:py-16 bg-white ">
+    <section className="px-4 md:px-20 lg:px-24 py-8 sm:py-12 lg:py-16 bg-white">
       <div>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium">
           What our customers talk about us!
         </h2>
         <p className="text-[#747C90] pt-4">
-          Real stories from people wh&apos;ve experienced the Raha difference
+          Real stories from people who&apos;ve experienced the Raha difference
         </p>
 
-        <div className="relative md:mx-20 flex justify-center items-center mt-8 sm:mt-12 lg:mt-20">
+        <div className="relative flex justify-center items-center mt-8 sm:mt-12 lg:mt-20">
           {/* Previous Testimonial Image (Left) - Desktop Only */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[100px] h-full rounded-xl overflow-hidden z-10 hidden lg:block">
             <img
-              src={currentTestimonial.customerImageSrc}
+              src={currentTestimonial.customerImageSrc || "/placeholder.svg"}
               alt={currentTestimonial.customerName}
               className="w-full h-full object-cover transition-opacity duration-500"
             />
@@ -103,51 +103,101 @@ export default function TestimonialSection() {
           </div>
 
           {/* Main Testimonial Card */}
-          <div className="relative bg-[#F5F6F7] rounded-xl max-w-[840px] w-full z-20 mx-2 sm:mx-4 lg:mx-4 flex flex-col lg:flex-row overflow-hidden">
-            {/* Mobile Navigation Buttons */}
-            <div className="flex justify-between items-center p-4 lg:hidden">
-              <button
-                onClick={handlePrev}
-                className="p-2 rounded-full bg-white/80 text-gray-800 hover:bg-white transition-colors shadow-sm"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={cn(
-                      "w-6 h-1 rounded-sm transition-all duration-300",
-                      currentIndex === index ? "bg-[#1A1A1A]" : "bg-gray-300"
-                    )}
-                    aria-label={`Go to testimonial ${index + 1}`}
+          <div className="relative bg-[#F5F6F7] rounded-t-xl rounded-x-2xl max-w-[1024px] w-full z-20 flex flex-col lg:flex-row overflow-hidden">
+            {/* Mobile Content - Reordered to match reference */}
+            <div className="lg:hidden">
+              {/* Stars, Quote, Logo, Name/Title */}
+              <div className="p-6">
+                <div className="flex justify-start mb-4">
+                  {Array.from({ length: currentTestimonial.rating }).map(
+                    (_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                      />
+                    )
+                  )}
+                </div>
+                <p className="text-lg font-medium text-[#101828] mb-6 leading-relaxed">
+                  {currentTestimonial.quote}
+                </p>
+                <div className="flex justify-start mb-4">
+                  <img
+                    src={currentTestimonial.logoSrc || "/placeholder.svg"}
+                    alt="Company Logo"
+                    className="w-20 h-10 object-contain"
                   />
-                ))}
+                </div>
+                <p className="font-medium text-base text-[#101828]">
+                  {currentTestimonial.customerName}
+                </p>
+                <p className="text-gray-600 text-sm">
+                  {currentTestimonial.customerTitle}
+                </p>
               </div>
-              <button
-                onClick={handleNext}
-                className="p-2 rounded-full bg-white/80 text-gray-800 hover:bg-white transition-colors shadow-sm"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
+
+              {/* Customer Image with Navigation Buttons */}
+              <div className="relative">
+                <div className="relative overflow-hidden mb-4">
+                  <img
+                    src={
+                      currentTestimonial.customerImageSrc || "/placeholder.svg"
+                    }
+                    alt={currentTestimonial.customerName}
+                    className="w-full h-64 object-cover transition-opacity duration-500"
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  {/* Smaller images stack */}
+                  <div className="flex flex-col gap-2 flex-1">
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={
+                          currentTestimonial.customerImageSrc ||
+                          "/placeholder.svg"
+                        }
+                        alt={currentTestimonial.customerName}
+                        className="w-full h-20 object-cover transition-opacity duration-500"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <button
+                          onClick={handlePrev}
+                          className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors shadow-lg"
+                          aria-label="Previous testimonial"
+                        >
+                          <ChevronLeft className="w-5 h-5 text-white drop-shadow-lg" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={
+                          currentTestimonial.customerImageSrc ||
+                          "/placeholder.svg"
+                        }
+                        alt={currentTestimonial.customerName}
+                        className="w-full h-20 object-cover transition-opacity duration-500"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <button
+                          onClick={handleNext}
+                          className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors shadow-lg"
+                          aria-label="Next testimonial"
+                        >
+                          <ChevronRight className="w-5 h-5 text-white drop-shadow-lg" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Customer Image - Mobile (Top) */}
-            <div className="relative w-full h-64 lg:hidden rounded-lg overflow-hidden">
-              <img
-                src={currentTestimonial.customerImageSrc}
-                alt={currentTestimonial.customerName}
-                className="w-full h-full object-cover transition-opacity duration-500"
-              />
-            </div>
-
-            {/* Testimonial Content */}
-            <div className="flex-1 p-4 sm:p-6 lg:p-8 text-left flex flex-col justify-between">
+            {/* Desktop Content - Unchanged */}
+            <div className="hidden lg:flex flex-1 p-8 text-left flex-col justify-between">
               <div>
-                <div className="flex justify-start mb-3 sm:mb-4">
+                <div className="flex justify-start mb-4">
                   {Array.from({ length: currentTestimonial.rating }).map(
                     (_, i) => (
                       <Star
@@ -157,25 +207,25 @@ export default function TestimonialSection() {
                     )
                   )}
                 </div>
-                <p className="text-lg sm:text-xl lg:text-2xl font-medium text-[#101828] mb-4 sm:mb-6 leading-relaxed">
+                <p className="text-2xl font-medium text-[#101828] mb-6 leading-relaxed">
                   &quot;{currentTestimonial.quote}&quot;
                 </p>
-                <div className="flex justify-start mb-4 sm:mb-6">
+                <div className="flex justify-start mb-6">
                   <img
-                    src={currentTestimonial.logoSrc}
+                    src={currentTestimonial.logoSrc || "/placeholder.svg"}
                     alt="Company Logo"
-                    className="w-16 h-8 sm:w-20 sm:h-10 lg:w-24 lg:h-12 object-contain"
+                    className="w-24 h-12 object-contain"
                   />
                 </div>
-                <p className="font-medium text-base sm:text-lg text-[#101828]">
+                <p className="font-medium text-lg text-[#101828]">
                   {currentTestimonial.customerName}
                 </p>
-                <p className="text-gray-600 text-sm sm:text-base">
+                <p className="text-gray-600 text-base">
                   {currentTestimonial.customerTitle}
                 </p>
 
                 {/* Desktop Indicators */}
-                <div className="hidden lg:flex gap-2 items-center mt-6">
+                <div className="flex gap-2 items-center mt-6">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
@@ -196,7 +246,7 @@ export default function TestimonialSection() {
             {/* Customer Image - Desktop (Right) */}
             <div className="relative w-full lg:w-64 min-h-[200px] lg:min-h-0 lg:h-auto rounded-lg overflow-hidden hidden lg:block">
               <img
-                src={currentTestimonial.customerImageSrc}
+                src={currentTestimonial.customerImageSrc || "/placeholder.svg"}
                 alt={currentTestimonial.customerName}
                 className="w-full h-full object-cover transition-opacity duration-500"
               />
@@ -206,7 +256,7 @@ export default function TestimonialSection() {
           {/* Next Testimonial Image (Right) - Desktop Only */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[100px] h-full rounded-xl overflow-hidden z-10 hidden lg:block">
             <img
-              src={currentTestimonial.customerImageSrc}
+              src={currentTestimonial.customerImageSrc || "/placeholder.svg"}
               alt={currentTestimonial.customerName}
               className="w-full h-full object-cover transition-opacity duration-500"
             />

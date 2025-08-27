@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
 
 export default function HealthStats() {
   return (
-    <section className="px-5 md:px-20 lg:px-24">
+    <section className="px-5 pt-28 md:pt-0 md:px-20 lg:px-24">
       <div className="">
         <div className="text-left mb-14">
           <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
@@ -26,11 +28,13 @@ export default function HealthStats() {
               alt="Group of smiling professionals"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
+              className="object-cover "
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-              <h3 className="text-3xl font-medium">40 Lakhs +</h3>
-              <p className="text-lg">Lives covered</p>
+              <h3 className="text-[22px] md:text-3xl font-medium">
+                40 Lakhs +
+              </h3>
+              <p className="text-sm md:text-lg">Lives covered</p>
             </div>
           </div>
 
@@ -46,8 +50,8 @@ export default function HealthStats() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3 md:p-6 text-white">
-                <h3 className="text-3xl font-medium">95%</h3>
-                <p className="text-lg">Clients retention</p>
+                <h3 className="text-[22px] md:text-3xl font-medium">95%</h3>
+                <p className="text-sm md:text-lg">Clients retention</p>
               </div>
             </div>
 
@@ -61,8 +65,10 @@ export default function HealthStats() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3 md:p-6 text-white">
-                <h3 className="text-3xl font-medium">4 Lakhs +</h3>
-                <p className="text-lg">Claims settled</p>
+                <h3 className="text-[22px] md:text-3xl font-medium">
+                  4 Lakhs +
+                </h3>
+                <p className="text-sm md:text-lg">Claims settled</p>
               </div>
             </div>
           </div>
@@ -77,8 +83,10 @@ export default function HealthStats() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-              <h3 className="text-3xl font-medium">₹ 50 Crore</h3>
-              <p className="text-lg">Worth claims settled</p>
+              <h3 className="text-[22px] md:text-3xl font-medium">
+                ₹ 50 Crore
+              </h3>
+              <p className="text-sm md:text-lg">Worth claims settled</p>
             </div>
           </div>
         </div>
