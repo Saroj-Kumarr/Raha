@@ -86,7 +86,7 @@ const Header = () => {
           }`}
         >
           <NavLinks />
-          <Link href="/sign-up">
+          <Link href="/quote">
             <Button className="w-36 h-10">
               Login <ChevronDown size={14} className="relative top-[2px]" />
             </Button>
@@ -106,7 +106,7 @@ const Header = () => {
           <div className="flex flex-col gap-6">
             {/* Pass closeMenu handler to NavLinks */}
             <NavLinks closeMenu={() => setMenuOpen(false)} />
-            <Link href="/sign-up" onClick={() => setMenuOpen(false)}>
+            <Link href="/quote" onClick={() => setMenuOpen(false)}>
               <Button className="w-full h-10">
                 Login <ChevronDown size={14} className="relative top-[2px]" />
               </Button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function HomeCTASection() {
   return (
@@ -13,10 +14,12 @@ export default function HomeCTASection() {
                 Care that covers it all—for the health of those who matter most.
               </h1>
 
-              <button className="inline-flex items-center justify-center w-full md:w-52 gap-3 bg-white text-[#07392A] font-semibold px-6 sm:px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm sm:text-base">
-                Get a Quote
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
+              <Link href="/quote">
+                <button className="inline-flex items-center justify-center w-full md:w-52 gap-3 bg-white text-[#07392A] font-semibold px-6 sm:px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm sm:text-base">
+                  Get a Quote
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
+              </Link>
             </div>
 
             {/* Image section with gradient */}

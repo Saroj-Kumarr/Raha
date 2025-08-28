@@ -107,7 +107,7 @@ export default function Feature() {
             </p>
           </div>
 
-          <Link href="/sign-up">
+          <Link href="/quote">
             <Button className="inline-flex items-center gap-3 bg-[#00150E] hover:bg-[#00150E]/80 transition-all duration-300 text-white h-11 w-52 rounded-sm font-semibold">
               <span className="relative bottom-[2px]">Schedule a Demo</span>
               <ChevronRight className="w-5 h-5" />
