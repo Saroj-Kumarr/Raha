@@ -17,7 +17,7 @@ const InsuranceAndWellness = () => {
           Insurance & Wellness. Simplified
         </h2>
       </div>
-      <div className="space-y-12 md:space-y-28">
+      <div className="space-y-12 md:space-y-20">
         <AddYourTeam />
         <RaiseRequest />
         <UpdatePolicy />
