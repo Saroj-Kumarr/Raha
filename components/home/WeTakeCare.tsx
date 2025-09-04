@@ -1,31 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { CornerDownRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const WeTakeCare = () => {
-  const [activeTab, setActiveTab] = useState("insurance");
+const WeTakeCare = ({ initialTab = "insurance" }: { initialTab?: string }) => {
+  console.log("Initial Tab:", initialTab);
 
   const tabs = [
     {
-      id: "insurance",
+      id: "group-insurance",
       label: "🛡️ Insurance",
       title: "Insurance for every employee",
       description:
         "Raha was conceptualized to empower organizations to provide the best health and insurance benefits to their employees.",
     },
     {
-      id: "wellness",
+      id: "employee-wellness",
       label: "🧘 Wellness",
       title: "Employee Wellness",
       description:
         "From fitness sessions to mental well-being support, we create a happier, healthier workplace.",
     },
     {
-      id: "opd",
+      id: "opd-insurance",
       label: "👩‍⚕️ OPD",
       title: "OPD Services",
       description:
@@ -33,10 +33,29 @@ const WeTakeCare = () => {
     },
   ];
 
+  const [activeTab, setActiveTab] = useState("group-insurance");
+
+  useEffect(() => {
+    if (
+      initialTab &&
+      ["group-insurance", "employee-wellness", "opd-insurance"].includes(
+        initialTab
+      )
+    ) {
+      setActiveTab(initialTab);
+      const el = document.getElementById(initialTab);
+      if (el) {
+        const yOffset = -40; // offset in pixels (example: 80px from top)
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [initialTab]);
+
   const activeContent = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section className="md:px-20 lg:px-24 pt-16 md:pb-20">
+    <section id="we-take-care" className="md:px-20 lg:px-24 pt-16 md:pb-20">
       {/* Header */}
       <div className="text-left mb-14 px-5">
         <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
@@ -62,6 +81,7 @@ const WeTakeCare = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              id={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
                 flex-shrink-0 md:flex-1   
@@ -100,7 +120,7 @@ const WeTakeCare = () => {
             <p className="md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               {activeContent.description}
             </p>
-            <Link href="/services">
+            <Link href="/quote">
               <Button
                 variant="ghost"
                 className="p-0 h-10 font-medium text-foreground hover:text-primary"

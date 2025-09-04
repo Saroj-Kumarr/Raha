@@ -1,42 +1,33 @@
+"use client";
+
+import React from "react";
 import AboutHero from "@/components/about/AboutHero";
-import ContactForm from "@/components/about/ContactForm";
-import CoreValues from "@/components/about/CoreValues";
-import DriveUs from "@/components/about/DriveUs";
-import Humans from "@/components/about/Humans";
-import MeetOurPeople from "@/components/about/MeetOurPeople";
-import OpenPositions from "@/components/about/OpenPositions";
-import OurJourney from "@/components/about/OurJourney";
 import TrustedBy from "@/components/about/TrustedBy";
 import Values from "@/components/about/Values";
+import Humans from "@/components/about/Humans";
 import FAQSection from "@/components/feature/FAQSection";
 import HomeCTASection from "@/components/home/HomeCTASection";
-import React from "react";
+import OpenPositionsClient from "@/components/about/OpenPositionClient";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="pb-20 relative min-h-screen">
       <div
         className="
-  absolute inset-0 -z-10 h-full w-full
-  bg-[linear-gradient(to_right,#d3d3d333_1px,transparent_1px),linear-gradient(to_bottom,#d3d3d333_1px,transparent_1px)]
-  bg-[size:100px_100px]
-"
+        absolute inset-0 -z-10 h-full w-full
+        bg-[linear-gradient(to_right,#d3d3d333_1px,transparent_1px),linear-gradient(to_bottom,#d3d3d333_1px,transparent_1px)]
+        bg-[size:100px_100px]
+        "
       />
       <AboutHero />
       <TrustedBy />
       <Values />
       <Humans />
-      <OpenPositions />
-      {/* <OurJourney /> */}
-      {/* <DriveUs /> */}
-      {/* <MeetOurPeople /> */}
-      {/* <CoreValues /> */}
-      {/* <ContactForm /> */}
-      {/* <FAQSection /> */}
+      <OpenPositionsClient />
       <FAQSection />
       <HomeCTASection />
     </div>
   );
 };
 
-export default page;
+export default Page;

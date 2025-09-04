@@ -15,7 +15,6 @@ import Image from "next/image";
 import ThankYou from "@/components/sign-up/ThankYou";
 
 export default function SignupForm() {
-  const [currentStep, setCurrentStep] = useState(1);
   const [isSubmit, setIsSubmit] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,21 +23,7 @@ export default function SignupForm() {
     workEmail: "",
     industry: "",
     product: "",
-    // Step 2 generic fields
-    field1: "",
-    field2: "",
-    field3: "",
-    field4: "",
-    field5: "",
-    field6: "",
-    field7: "",
   });
-
-  const handleNext = () => {
-    if (currentStep < 2) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
 
   const handleSubmit = () => {
     setIsSubmit(true);
@@ -62,307 +47,161 @@ export default function SignupForm() {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#00150E]">
                   Request Demo
                 </h2>
-                <span className="text-xs text-gray-500">
-                  <span className="text-[#192648] font-medium">
-                    Step {currentStep}
-                  </span>{" "}
-                  of 2
-                </span>
               </div>
             </div>
 
             {/* Form Content */}
             <div className="flex-1">
-              {currentStep === 1 ? (
-                <div className="space-y-7">
-                  {/* Name & Mobile */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Name */}
-                    <div className="space-y-2">
-                      <Label className="text-sm text-[#2C3857]" htmlFor="name">
-                        Name
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="name"
-                        placeholder="Enter Your Name"
-                        value={formData.name}
-                        onChange={(e) => updateFormData("name", e.target.value)}
-                      />
-                    </div>
-
-                    {/* Mobile */}
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="mobile"
-                      >
-                        Mobile no.
-                      </Label>
-                      <div className="flex w-full">
-                        <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md h-10">
-                          +91
-                        </span>
-                        <Input
-                          className="h-10 rounded-l-none w-full"
-                          id="mobile"
-                          placeholder="Enter mobile number"
-                          value={formData.mobile}
-                          onChange={(e) =>
-                            updateFormData("mobile", e.target.value)
-                          }
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Employees & Work Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Employees */}
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="employees"
-                      >
-                        Employees
-                      </Label>
-                      <Select
-                        value={formData.employees}
-                        onValueChange={(value) =>
-                          updateFormData("employees", value)
-                        }
-                      >
-                        <SelectTrigger
-                          id="employees"
-                          className="h-10 min-h-10 px-4 pr-8 text-base w-full"
-                        >
-                          <SelectValue placeholder="Select" />
-                        </SelectTrigger>
-                        <SelectContent className="w-[var(--radix-select-trigger-width)]">
-                          <SelectItem value="1-10">1-10</SelectItem>
-                          <SelectItem value="11-50">11-50</SelectItem>
-                          <SelectItem value="51-200">51-200</SelectItem>
-                          <SelectItem value="201-500">201-500</SelectItem>
-                          <SelectItem value="500+">500+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    {/* Work Email */}
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="workEmail"
-                      >
-                        Work Email <span className="text-slate-800">*</span>
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="workEmail"
-                        type="email"
-                        placeholder="Enter your work email"
-                        value={formData.workEmail}
-                        onChange={(e) =>
-                          updateFormData("workEmail", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* Industry */}
+              <div className="space-y-7">
+                {/* Name & Mobile */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Name */}
                   <div className="space-y-2">
-                    <Label
-                      className="text-sm text-[#2C3857]"
-                      htmlFor="industry"
-                    >
-                      Choose your industry
-                    </Label>
-                    <Select
-                      value={formData.industry}
-                      onValueChange={(value) =>
-                        updateFormData("industry", value)
-                      }
-                    >
-                      <SelectTrigger className="w-full h-10 px-4 pr-8 text-base">
-                        <SelectValue placeholder="Select your company's industry" />
-                      </SelectTrigger>
-                      <SelectContent className="w-[var(--radix-select-trigger-width)]">
-                        <SelectItem value="technology">Technology</SelectItem>
-                        <SelectItem value="healthcare">Healthcare</SelectItem>
-                        <SelectItem value="finance">Finance</SelectItem>
-                        <SelectItem value="education">Education</SelectItem>
-                        <SelectItem value="retail">Retail</SelectItem>
-                        <SelectItem value="manufacturing">
-                          Manufacturing
-                        </SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Product */}
-                  <div className="space-y-2">
-                    <Label className="text-sm text-[#2C3857]" htmlFor="product">
-                      Which product are you interested in?
-                    </Label>
-                    <Select
-                      value={formData.product}
-                      onValueChange={(value) =>
-                        updateFormData("product", value)
-                      }
-                    >
-                      <SelectTrigger className="w-full h-10 px-4 pr-8 text-base">
-                        <SelectValue placeholder="Select product(s)" />
-                      </SelectTrigger>
-                      <SelectContent className="w-[var(--radix-select-trigger-width)]">
-                        <SelectItem value="product1">Product 1</SelectItem>
-                        <SelectItem value="product2">Product 2</SelectItem>
-                        <SelectItem value="product3">Product 3</SelectItem>
-                        <SelectItem value="product4">Product 4</SelectItem>
-                        <SelectItem value="product5">Product 5</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              ) : (
-                // Step 2 Fields Section unchanged
-                <div className="space-y-7">
-                  {/* Step 2 Fields */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field1"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field1"
-                        placeholder="Enter Untitled"
-                        value={formData.field1}
-                        onChange={(e) =>
-                          updateFormData("field1", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field2"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field2"
-                        placeholder="Enter Untitled"
-                        value={formData.field2}
-                        onChange={(e) =>
-                          updateFormData("field2", e.target.value)
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field3"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field3"
-                        placeholder="Enter Untitled"
-                        value={formData.field3}
-                        onChange={(e) =>
-                          updateFormData("field3", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field4"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field4"
-                        placeholder="Enter Untitled"
-                        value={formData.field4}
-                        onChange={(e) =>
-                          updateFormData("field4", e.target.value)
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field5"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field5"
-                        placeholder="Enter Untitled"
-                        value={formData.field5}
-                        onChange={(e) =>
-                          updateFormData("field5", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label
-                        className="text-sm text-[#2C3857]"
-                        htmlFor="field6"
-                      >
-                        Untitled
-                      </Label>
-                      <Input
-                        className="h-10"
-                        id="field6"
-                        placeholder="Enter Untitled"
-                        value={formData.field6}
-                        onChange={(e) =>
-                          updateFormData("field6", e.target.value)
-                        }
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label className="text-sm text-[#2C3857]" htmlFor="field7">
-                      Untitled
+                    <Label className="text-sm text-[#2C3857]" htmlFor="name">
+                      Name
                     </Label>
                     <Input
                       className="h-10"
-                      id="field7"
-                      placeholder="Enter Untitled"
-                      value={formData.field7}
-                      onChange={(e) => updateFormData("field7", e.target.value)}
+                      id="name"
+                      placeholder="Enter Your Name"
+                      value={formData.name}
+                      onChange={(e) => updateFormData("name", e.target.value)}
+                    />
+                  </div>
+
+                  {/* Mobile */}
+                  <div className="space-y-2">
+                    <Label className="text-sm text-[#2C3857]" htmlFor="mobile">
+                      Mobile no.
+                    </Label>
+                    <div className="flex w-full">
+                      <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md h-10">
+                        +91
+                      </span>
+                      <Input
+                        className="h-10 rounded-l-none w-full"
+                        id="mobile"
+                        placeholder="Enter mobile number"
+                        value={formData.mobile}
+                        onChange={(e) =>
+                          updateFormData("mobile", e.target.value)
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Employees & Work Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Employees */}
+                  <div className="space-y-2">
+                    <Label
+                      className="text-sm text-[#2C3857]"
+                      htmlFor="employees"
+                    >
+                      Employees
+                    </Label>
+                    <Select
+                      value={formData.employees}
+                      onValueChange={(value) =>
+                        updateFormData("employees", value)
+                      }
+                    >
+                      <SelectTrigger
+                        id="employees"
+                        className="h-10 min-h-10 px-4 pr-8 text-base w-full"
+                      >
+                        <SelectValue placeholder="Select" />
+                      </SelectTrigger>
+                      <SelectContent className="w-[var(--radix-select-trigger-width)]">
+                        <SelectItem value="1-10">1-10</SelectItem>
+                        <SelectItem value="11-50">11-50</SelectItem>
+                        <SelectItem value="51-200">51-200</SelectItem>
+                        <SelectItem value="201-500">201-500</SelectItem>
+                        <SelectItem value="500+">500+</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Work Email */}
+                  <div className="space-y-2">
+                    <Label
+                      className="text-sm text-[#2C3857]"
+                      htmlFor="workEmail"
+                    >
+                      Work Email <span className="text-slate-800">*</span>
+                    </Label>
+                    <Input
+                      className="h-10"
+                      id="workEmail"
+                      type="email"
+                      placeholder="Enter your work email"
+                      value={formData.workEmail}
+                      onChange={(e) =>
+                        updateFormData("workEmail", e.target.value)
+                      }
+                      required
                     />
                   </div>
                 </div>
-              )}
+
+                {/* Industry */}
+                <div className="space-y-2">
+                  <Label className="text-sm text-[#2C3857]" htmlFor="industry">
+                    Choose your industry
+                  </Label>
+                  <Select
+                    value={formData.industry}
+                    onValueChange={(value) => updateFormData("industry", value)}
+                  >
+                    <SelectTrigger className="w-full h-10 px-4 pr-8 text-base">
+                      <SelectValue placeholder="Select your company's industry" />
+                    </SelectTrigger>
+                    <SelectContent className="w-[var(--radix-select-trigger-width)]">
+                      <SelectItem value="technology">Technology</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="finance">Finance</SelectItem>
+                      <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="retail">Retail</SelectItem>
+                      <SelectItem value="manufacturing">
+                        Manufacturing
+                      </SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Product */}
+                <div className="space-y-2">
+                  <Label className="text-sm text-[#2C3857]" htmlFor="product">
+                    Which product are you interested in?
+                  </Label>
+                  <Select
+                    value={formData.product}
+                    onValueChange={(value) => updateFormData("product", value)}
+                  >
+                    <SelectTrigger className="w-full h-10 px-4 pr-8 text-base">
+                      <SelectValue placeholder="Select product(s)" />
+                    </SelectTrigger>
+                    <SelectContent className="w-[var(--radix-select-trigger-width)]">
+                      <SelectItem value="product1">Product 1</SelectItem>
+                      <SelectItem value="product2">Product 2</SelectItem>
+                      <SelectItem value="product3">Product 3</SelectItem>
+                      <SelectItem value="product4">Product 4</SelectItem>
+                      <SelectItem value="product5">Product 5</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
             </div>
 
             {/* Action Button */}
             <div className="mt-8">
               <Button
-                onClick={currentStep === 1 ? handleNext : handleSubmit}
+                onClick={handleSubmit}
                 className="w-full h-11 bg-[#04110C] hover:bg-[#04110C]/80 transition-all duration-300 text-white py-3 rounded-md"
               >
-                {currentStep === 1 ? "Next" : "Submit"}
+                Submit
               </Button>
             </div>
 

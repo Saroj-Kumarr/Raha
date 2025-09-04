@@ -1,3 +1,4 @@
+import React from "react";
 import TrustedBy from "@/components/about/TrustedBy";
 import DeserveBetter from "@/components/home/DeserveBetter";
 import Feature from "@/components/home/Feature";
@@ -6,30 +7,31 @@ import HealthStats from "@/components/home/HealthStats";
 import Hero from "@/components/home/hero/Hero";
 import HomeCTASection from "@/components/home/HomeCTASection";
 import NewFeature from "@/components/home/NewFeature";
-import WeTakeCare from "@/components/home/WeTakeCare";
 import Testimonial from "@/components/shared/Testimonial";
-import React from "react";
 
-const page = () => {
+// Import client wrapper normally (no dynamic import)
+import WeTakeCareClient from "@/components/home/WeTakeCareClient";
+
+const Page = () => {
   return (
     <div>
       <Hero />
       <TrustedBy />
       {/* <Feature /> */}
-      <WeTakeCare />
+      <WeTakeCareClient />
       <HealthStats />
       <NewFeature />
       <Testimonial />
       <GetStarted />
       <HomeCTASection />
-      {/* <HealthStats />
-      <NewFeature /> */}
+      {/* <HealthStats /> */}
+      {/* <NewFeature /> */}
       {/* <DeserveBetter /> */}
-      {/* <Testimonial />
-      <GetStarted />
-      <HomeCTASection /> */}
+      {/* <Testimonial /> */}
+      {/* <GetStarted /> */}
+      {/* <HomeCTASection /> */}
     </div>
   );
 };
 
-export default page;
+export default Page;

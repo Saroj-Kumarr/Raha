@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import JobCard from "./JobCard";
 
 const jobListings = [
@@ -59,9 +61,20 @@ const jobListings = [
   },
 ];
 
-const OpenPositions = () => {
+const OpenPositions = ({ career }: { career: string }) => {
+  useEffect(() => {
+    if (career) {
+      const el = document.getElementById(career);
+      if (el) {
+        const yOffset = -1; // offset in pixels (example: 40px from top)
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [career]);
+
   return (
-    <div className="px-4 md:px-20 lg:px-24 pt-20 pb-20">
+    <div id="career" className="px-4 md:px-20 lg:px-24 pt-20 pb-20">
       <div className="text-left mb-14">
         <p className="text-xs tracking-[8px] font-medium text-[#B2B7C2] uppercase mb-5">
           Hiring

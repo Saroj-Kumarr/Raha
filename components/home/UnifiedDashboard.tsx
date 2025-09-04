@@ -39,7 +39,7 @@ const UnifiedDashboard = () => {
               need is right here.
             </p>
 
-            <Link href="/feature">
+            <Link href="/quote">
               <Button
                 variant="ghost"
                 className="p-0 h-10 font-medium text-foreground hover:text-primary"
